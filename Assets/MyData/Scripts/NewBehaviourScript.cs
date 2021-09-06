@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+
+    Vector3 vector3;
+    Vector2 vector2;
+
     // Start is called before the first frame update
     void Start()
     {
+        var ang = Quaternion.Euler(1, 3, 180);
+
         On();
     }
 
@@ -19,8 +25,5 @@ public class NewBehaviourScript : MonoBehaviour
     private void On()
     {
 
-        Debug.Log("Log");
-        Debug.LogWarning("LogWarning");
-        Debug.LogError("LogError");
     }
 }

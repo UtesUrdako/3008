@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
         _isFire2 = false;
         name = "Player " + _id++;
         _direction = Vector3.zero;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Start()
@@ -63,7 +66,7 @@ public class Player : MonoBehaviour
         else
             _isFire2 = false;
 
-        GameObject bullet = Instantiate(_bulletPrefab, _bulletSpawn.position, Quaternion.identity);
+        GameObject bullet = Instantiate(_bulletPrefab, _bulletSpawn.position, _bulletSpawn.rotation);
 
         bullet.GetComponent<Bullet>().Initialization(15f, _target, selfHoming);
     }

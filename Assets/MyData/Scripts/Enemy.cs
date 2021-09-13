@@ -32,14 +32,6 @@ public class Enemy : MonoBehaviour
         if (_target == null) return;
 
 
-        float distance = Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z),
-            new Vector3(waypoints[m_CurrentWaypointIndex].position.x, 0, waypoints[m_CurrentWaypointIndex].position.z));
-        if (distance < _agent.stoppingDistance)
-        {
-            m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
-            _agent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
-        }
-
         Vector3 direction = _target.position - _head.position;
         //direction.Set(direction.x, _head.position.y, direction.z);
 

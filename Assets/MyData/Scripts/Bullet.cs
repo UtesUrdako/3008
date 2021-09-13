@@ -20,10 +20,10 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
-    void FixedUpdate()
-    {
-        //transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.fixedDeltaTime);
+    //void FixedUpdate()
+    //{
+    //    //transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.fixedDeltaTime);
 
-        transform.position += transform.forward * _speed * Time.fixedDeltaTime;
-    }
+    //    transform.position += transform.forward * _speed * Time.fixedDeltaTime;
+    //}
 }

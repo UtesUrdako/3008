@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-
     Vector3 vector3;
     Vector2 vector2;
 

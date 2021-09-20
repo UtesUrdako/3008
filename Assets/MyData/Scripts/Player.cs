@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour, IStorage
 {
@@ -14,6 +15,8 @@ public class Player : MonoBehaviour, IStorage
     [SerializeField] private float _speed;
     [SerializeField] private float _speedRotate = 50f;
     [SerializeField] private float _forceBullet = 50f;
+    [SerializeField] private Text _ammoText;
+
     private float _cfSpeed = 1f;
     private static int _id = 0;
     private Vector3 _direction;
@@ -23,7 +26,7 @@ public class Player : MonoBehaviour, IStorage
     private bool _isSprint;
     private float _rechargeTime = 2f;
     private List<string> _storage;
-
+    private int counterFire = 0;
 
     private void Awake()
     {
@@ -118,6 +121,8 @@ public class Player : MonoBehaviour, IStorage
         GameObject bullet = Instantiate(_bulletPrefab, _bulletSpawn.position, _bulletSpawn.rotation);
 
         bullet.GetComponent<Bullet>().Initialization(15f, _target, selfHoming);
+        counterFire++;
+        _ammoText.text = $"count fire: {counterFire}";
 
         Rigidbody rbBullet = bullet.GetComponent<Rigidbody>();
         rbBullet.AddForce(bullet.transform.forward * _forceBullet, ForceMode.Impulse);
